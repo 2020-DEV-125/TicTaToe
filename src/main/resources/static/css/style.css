@@ -1,0 +1,49 @@
+table {
+  width: 20%;
+}
+td {
+  width: 33.33%;
+  position: relative;
+}
+td:after {
+  content: '';
+  display: block;
+  margin-top: 100%;
+}
+td .content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: gold;
+}
+
+.center{
+	text-align: center;
+}
+
+.center_table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.current_player{
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.play_value{
+	font-size: 90px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.reset_btn{
+	color:white;
+	margin-top: 20px;
+	font-size: 20px;
+	background-color: gray;
+	text-decoration: none;
+
+}
