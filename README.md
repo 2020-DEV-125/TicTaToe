@@ -45,4 +45,6 @@ $ mvn package
 $ java -jar target/tic-tac-toe.jar
 ```
 
-Open your browser and type http://<IP Address>:8080 to view user interface of the game and follow instructions.
+Open your browser and type http://"IP Address":8080 to view user interface of the game and follow instructions.
+
+Here "IP Address" is IP address of the sever where the application is deployed.
