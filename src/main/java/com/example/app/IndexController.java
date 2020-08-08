@@ -26,23 +26,25 @@ public class IndexController {
 	
 	String draw="X"; 
 	
+	// Grid corresponding the number of columns and rows
+	// Cell holds the index of the row and colunm and the value played by the user.
 	Map<String, List<Cell>> grids =new HashMap<String, List<Cell>>();
 	
 	// Variable that store if player win
 	boolean win=false;
 	
+	// Variable to count play
+	int counter=1;
+	
+	// Start with the assumption that grid has 3 rows and 3 cols
+	int square=3;
+	
 	@GetMapping
     public String getIndex( Model model) {
 		
 		playerNumber=1;
-		
-		//playerNumber++;
-		
 		currentPlayer="Player "+playerNumber+", it is your turn to play";
 		
-		// Start with the assumption that grid has 3 rows and 3 cols
-		int square=3;
-
 		/**
 		 * Return the grid initialized with empty value
 		 */
@@ -51,20 +53,10 @@ public class IndexController {
 		/**
 		 *  Initialization of class that draws user played value
 		 */
-		//PlayerDraw playerDraw=new PlayerDraw();
 		
 		// Assumes player draws 'X' in a cell . Possible values 'X' or 'O'
-		
 		String draw="X";
 		
-		
-		//String value_draw=playerDraw.setADraw(grid,draw);
-		
-		//boolean win = playerDraw.checkIfPlayerWin( grids, draw);
-		
-		
-		
-
         model.addAttribute("welcome_msg", "Welcome To Tic Tac Toe Game");
         model.addAttribute("currentPlayer", currentPlayer);
         model.addAttribute("grids", grids);
@@ -72,8 +64,6 @@ public class IndexController {
         if(playerNumber==2) {
         	playerNumber=0;
         }
-        
-
         return "index";
     }
 	
@@ -84,11 +74,8 @@ public class IndexController {
 			@RequestParam(name = "col") int col) {
 		
 		if(draw==null) {
-			
 			return "redirect:/";
 		}
-		
-		
 		
 		/**
 		 *  Initialization of class that draws user played value
@@ -96,9 +83,7 @@ public class IndexController {
 		PlayerDraw playerDraw=new PlayerDraw();
 		
 		// Assumes player draws 'X' in a cell . Possible values 'X' or 'O'
-		//String draw="X"; 
 		int winner=playerNumber;
-		
 		
 		// Check if position is already played.
 		// If position is played, dont update
@@ -109,23 +94,14 @@ public class IndexController {
 			// 'row' represent the row index the user played
 			// 'col' represent the col index the user played
 			grids=playerDraw.setDrawAndReturnUpdatedGrid(grids, draw, row,col);
-			
-			
 			win = playerDraw.checkIfPlayerWin( grids, draw);
-			
-			
 			playerNumber++;
-			
 			draw=((draw=="X")?"O":"X");
-			
+			counter++;
 		}
-		
-	
-		
 		
 		currentPlayer="Player "+playerNumber+", it is your turn to play";
 		
-
         model.addAttribute("welcome_msg", "Welcome To Tic Tac Toe Game");
         model.addAttribute("currentPlayer", currentPlayer);
         model.addAttribute("grids", grids);
@@ -139,11 +115,11 @@ public class IndexController {
             }    	
         }
 
-        
-        
-
+        if(!win) {
+        	 if(counter==Math.pow(square, square)) {
+             	
+             }
+        }
         return "index";
     }
-	
-
 }
