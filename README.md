@@ -1,5 +1,7 @@
-Java "Tic Tac Toe" game
------------------------------
+"Tic Tac Toe" game Java Application
+------------------------------------
+
+This application is a Spring Boot MVC application. It was developed as Maven Project. The user interface of the game is developed using thymleaf that comes with Spring Boot.
 
 ## Prerequisites
 
