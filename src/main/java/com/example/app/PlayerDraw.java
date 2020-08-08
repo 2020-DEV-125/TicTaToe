@@ -45,11 +45,17 @@ public class PlayerDraw {
 		return value_draw;
 	}
 
+	/**
+	 * This method is to set a value ('X' or 'O') in a cell and return the value set.
+	 * @param grid
+	 * @param playerDraw
+	 * @param draw_row
+	 * @param draw_col
+	 * @return 
+	 */
 	public String setADraw(Map<String, List<Cell>> grid,String playerDraw, int draw_row, int draw_col) {
 		
-		
 		int square=grid.size();
-		
 		int row=draw_row;
 		int col=draw_col;
 		
@@ -61,12 +67,10 @@ public class PlayerDraw {
 			col=0;
 		}
 
-		
-		
 		List<Cell> listcell=grid.get(String.valueOf(row));
 		Cell cell=listcell.get(col);
 		
-		// SET PLAYER DRAW
+		// Set player draw
 		if(playerDraw=="X" || playerDraw=="O" ) {
 			cell.setValue(playerDraw);
 		}else {
