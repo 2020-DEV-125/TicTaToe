@@ -45,5 +45,12 @@ td .content {
 	font-size: 20px;
 	background-color: gray;
 	text-decoration: none;
+}
 
+.win_msg{
+	color: green;
+}
+
+.draw_msg{
+	color: red;
 }
