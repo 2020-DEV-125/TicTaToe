@@ -24,6 +24,8 @@ public class IndexController {
 	// Variable that store player number
 	private int playerNumber = 0;
 
+	// Variable that store what users play. Either 'X' or 'O'
+	// Initialized with 'X' because first player play 'X'
 	String draw = "X";
 
 	// Grid corresponding the number of columns and rows
@@ -89,6 +91,11 @@ public class IndexController {
 	 */
 	@GetMapping("/playing")
 	public String startGame(Model model, @RequestParam(name = "row") int row, @RequestParam(name = "col") int col) {
+		
+		// If Game grid is not set (grid with 0 row and 0 col), redirect to index to reinitialize game
+		if(grids.size()==0) {
+			return "redirect:/";
+		}
 
 		// Set current player as previous player
 		previous_player = ((draw == "X") ? 1 : 2);

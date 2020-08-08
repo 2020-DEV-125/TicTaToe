@@ -1,5 +1,6 @@
 table {
-  width: 20%;
+/*   width: 20%; */
+  width: 100%;
 }
 td {
   width: 33.33%;
@@ -34,9 +35,15 @@ td .content {
 }
 
 .play_value{
+	
 	font-size: 90px;
+	font-size-adjust: 90px;
+	-moz-text-size-adjust: 90px; 
+	-webkit-text-size-adjust: 90px;
+	-ms-text-size-adjust: 90px;
 	font-weight: bold;
 	text-align: center;
+/* 	font-size-adjust: 1.5em; */
 }
 
 .reset_btn{
